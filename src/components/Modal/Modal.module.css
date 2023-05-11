@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgb(175, 175, 239);
+    background-color: rgb(202, 202, 209);
 }
 
 .Modal__content {
@@ -21,3 +21,4 @@
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
     font-size: 18px;
 }
+

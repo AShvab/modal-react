@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from './Modal';
+import css from './App.module.css';
 
 class App extends Component {
   state = {
@@ -22,7 +23,7 @@ class App extends Component {
 
     return (
       <div>
-        <button type="button" onClick={this.toggleModal}>
+        <button type="button" onClick={this.toggleModal } className ={css.openButton}>
           Open Modal
         </button>
         {showModal && (
@@ -41,7 +42,7 @@ class App extends Component {
               ratione ipsa perspiciatis, in alias blanditiis iure? Voluptate
               alias eos repudiandae beatae!
             </p>
-            <button type="button" onClick={this.toggleModal}>
+            <button type="button" onClick={this.toggleModal} className ={css.closeButton}>
               Close Modal
             </button>
           </Modal>
