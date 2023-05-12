@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+
 import Modal from './Modal';
+import { VideoList } from './VideoList/VideoList';
+import { Player } from './Player/Player';
+import videos from '../components/videos.json';
 import css from './App.module.css';
 
 class App extends Component {
   state = {
     showModal: false,
+    selectedVideo: null,
   };
   componentDidMount() {
     // console.log('Mount App Component');
@@ -18,12 +23,17 @@ class App extends Component {
     this.setState({ showModal: !this.state.showModal });
   };
 
+  selectVideo = link => {
+    this.setState({ selectedVideo: link });
+  };
+
   render() {
-    const { showModal } = this.state;
+    const { showModal, selectedVideo } = this.state;    
 
     return (
       <div>
-        <button type="button" onClick={this.toggleModal } className ={css.openButton}>
+  
+        <button type="button" onClick={this.toggleModal } className={css.openButton}>
           Open Modal
         </button>
         {showModal && (
@@ -42,12 +52,17 @@ class App extends Component {
               ratione ipsa perspiciatis, in alias blanditiis iure? Voluptate
               alias eos repudiandae beatae!
             </p>
-            <button type="button" onClick={this.toggleModal} className ={css.closeButton}>
+            <button type="button" onClick={this.toggleModal} className={css.closeButton}>
               Close Modal
             </button>
           </Modal>
+          
         )}
+        <h2>Selected video: {selectedVideo}</h2>
+       <VideoList videos={videos} onSelect={this.selectVideo} />
+        <Player url={selectedVideo} />
       </div>
+     
     );
   }
 }
