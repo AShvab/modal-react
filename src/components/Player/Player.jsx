@@ -21,7 +21,7 @@ export class Player extends Component {
 
     return (
       <>
-        {showLoader && <h2>Загружаем видео...</h2>}
+        {showLoader && <h2>Loading...</h2>}
         {url && (
           <PlayerWrapper>
             <StyledPlayer
